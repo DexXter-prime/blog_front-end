@@ -27,7 +27,7 @@ import { NotAuthGuard } from "./shared/services/NotAuth.guard";
     ReactiveFormsModule,
     SharedModule,
     RouterModule.forChild([
-      {path: '', component: AdminLayoutComponent, children: [ // guards
+      {path: '', component: AdminLayoutComponent, children: [
         {path: '', redirectTo: '/admin/create', pathMatch: 'full'},
         {path: 'registration', component: RegistrationPageComponent, canActivate: [NotAuthGuard]},
         {path: 'login', component: LoginPageComponent, canActivate: [NotAuthGuard]},

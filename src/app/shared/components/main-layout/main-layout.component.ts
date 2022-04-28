@@ -13,7 +13,6 @@ export class MainLayoutComponent implements OnInit {
   constructor(public auth: AuthService, private postsService: PostsService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.postsService.getAllPosts().subscribe();
   }
 
 

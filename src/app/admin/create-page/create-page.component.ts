@@ -32,9 +32,9 @@ export class CreatePageComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = new FormGroup({
-      title: new FormControl(null, [Validators.required, Validators.maxLength(15)]), //add error to front
+      title: new FormControl(null, [Validators.required, Validators.maxLength(15)]),
       content: new FormControl(null, [Validators.required, Validators.minLength(10)]),
-      tags: new FormControl(null, [MyValidators.checkAmountOfTags()]), // fix zero tags
+      tags: new FormControl(null, [MyValidators.checkAmountOfTags()]),
       file: new FormControl(null)
     })
 

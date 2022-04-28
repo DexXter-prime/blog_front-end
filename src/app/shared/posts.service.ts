@@ -1,13 +1,10 @@
-import { DatePipe } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { BehaviorSubject, delay, map, Observable, switchMap, tap } from "rxjs";
-import { environment } from "src/environments/environment";
+import { switchMap, tap } from "rxjs";
 import { urlPostLink } from "src/environments/url";
 import { IPost } from "../admin/shared/interfaces";
 import { AuthService } from "../admin/shared/services/auth.service";
-import { PostPageComponent } from "../post-page/post-page.component";
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +13,6 @@ export class PostsService {
 
   currentPost!: any;
   posts!: any;
-
-  // currentPostData!: any;
-  // public postDataToAccess = new BehaviorSubject<any>(this.currentPostData);
 
   constructor(private http: HttpClient, private router: Router, private auth: AuthService) {}
 

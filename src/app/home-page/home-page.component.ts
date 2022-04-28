@@ -19,8 +19,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   page: number = 1;
   count: number = 0;
-  tableSize: number = 7;
-  tableSizes: any = [3, 6, 9, 12];
+
 
   ngOnInit(): void {
     if(this.auth.isAuthenticated) {
@@ -48,10 +47,5 @@ export class HomePageComponent implements OnInit, OnDestroy {
     event.preventDefault();
     this.router.navigate(['/posts'])
     this.postsService.getAllPosts().subscribe()
-  }
-
-  pageChange(event: number): void {
-    console.log(event);
-    console.log('works')
   }
 }

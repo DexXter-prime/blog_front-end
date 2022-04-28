@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { urlGoogleIcon } from 'src/environments/url';
-import { IUser, IUserData } from '../shared/interfaces';
+import { IUserData } from '../shared/interfaces';
 import { AuthService } from '../shared/services/auth.service';
 
 @Component({
