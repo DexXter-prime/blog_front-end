@@ -1,0 +1,47 @@
+<!-- <div class="post">
+  <div class="header">
+    <h1>{{postsService.currentPost?.title}}</h1>
+    <button routerLink="/posts" class="btn btn-link">Main page</button>
+  </div>
+  <div class="info">
+    <strong>{{postsService.currentPost?.author}}</strong>
+    <small>{{postsService.currentPost?.createdAt | date }}</small>
+  </div>
+  <div class="main-text">
+    <div *ngIf="postsService.currentPost?.imageSource; else placeholderBlock">
+      <img [src]="staticPath + postsService.currentPost?.imageSource">
+    </div>
+    <ng-template #placeholderBlock>
+      <div>
+        <img [src]="placeholderPath">
+      </div>
+    </ng-template>
+    <p>{{postsService.currentPost?.content}}</p>
+    <mat-button-toggle (click)="handleLike(postsService.currentPost?.id)" checked="{{isLiked?.isLiked}}" mat-button>Like {{postsService.currentPost?.likeCounter}}</mat-button-toggle>
+  </div>
+</div> -->
+
+<main class="main-wrapper">
+  <div class="main-block">
+      <button routerLink="/posts" class="btn btn-primary">Main page</button>
+    <div class="header">
+      <h1><strong>{{postsService.currentPost?.title}}</strong></h1>
+      <small>{{postsService.currentPost?.createdAt | date }}</small>
+    </div>
+    <div class="img-block" *ngIf="postsService.currentPost?.imageSource; else placeholderBlock">
+      <img [src]="staticPath + postsService.currentPost?.imageSource">
+    </div>
+    <ng-template #placeholderBlock>
+      <div class="img-block">
+        <img [src]="placeholderPath">
+      </div>
+    </ng-template>
+    <div class="text-block">
+      <p>{{postsService.currentPost?.content}}</p>
+    </div>
+    <div class="like-author-block">
+      <p>Author: <strong>{{postsService.currentPost?.author}}</strong></p>
+      <mat-button-toggle (click)="handleLike(postsService.currentPost?.id)" checked="{{isLiked?.isLiked}}" mat-button>Like {{postsService.currentPost?.likeCounter}}</mat-button-toggle>
+    </div>
+  </div>
+</main>

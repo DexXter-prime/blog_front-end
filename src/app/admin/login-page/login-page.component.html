@@ -1,0 +1,69 @@
+<!-- <form class="card" [formGroup]="form" (ngSubmit)="submit()">
+  <h2>Enter to admin panel</h2>
+  <div class="alert alert-danger" *ngIf="error$ | async as error">
+      {{error}}
+  </div>
+
+  <div class="alert alert-info" *ngIf="message">
+    {{message}}
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('email')!.touched && form.get('email')!.invalid}">
+    <label for="email">Email: </label>
+    <input type="email" id="email" formControlName="email">
+    <div class="validation" *ngIf="form.get('email')!.touched && form.get('email')!.invalid">
+      <small *ngIf="form.get('email')!.errors!.required">Email has to be filled</small>
+      <small *ngIf="form.get('email')!.errors!.email">Invalid Email</small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{'invalid': form.get('password')!.touched && form.get('password')!.invalid}">
+    <label for="password">Password: </label>
+    <input type="password" id="password" formControlName="password">
+    <div class="validation" *ngIf="form.get('password')!.touched && form.get('password')!.invalid">
+      <small *ngIf="form.get('password')!.errors!.required">Password has to be filled</small>
+      <small *ngIf="form.get('password')!.errors!.minlength">Your passwrods is {{form.get('password')!.errors!.minlength.actualLength}}, but has to be {{form.get('password')!.errors!.minlength.requiredLength}}</small>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit" [disabled]="form.invalid || submitted">Submit</button>
+</form> -->
+
+
+
+<form class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="text-center error-msg">
+    <div class="alert alert-danger" *ngIf="error$ | async as error">
+      {{error}}
+    </div>
+  </div>
+
+  <div class="alert alert-info" *ngIf="message">
+    {{message}}
+  </div>
+
+  <div class="form-label-group inputBlock" [ngClass]="{invalid: form.get('email')!.touched && form.get('email')!.invalid}">
+    <label for="inputEmail">Email address</label>
+    <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" autofocus="true">
+    <div class="validation" *ngIf="form.get('email')!.touched && form.get('email')!.invalid">
+      <small *ngIf="form.get('email')!.errors!.required">Email has to be filled</small>
+      <small *ngIf="form.get('email')!.errors!.email">Invalid Email</small>
+    </div>
+  </div>
+
+  <div class="form-label-group inputBlock" [ngClass]="{'invalid': form.get('password')!.touched && form.get('password')!.invalid}">
+    <label for="inputPassword">Password</label>
+    <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password">
+    <div class="validation" *ngIf="form.get('password')!.touched && form.get('password')!.invalid">
+      <small *ngIf="form.get('password')!.errors!.required">Password has to be filled</small>
+      <small *ngIf="form.get('password')!.errors!.minlength">Your passwrods is {{form.get('password')!.errors!.minlength.actualLength}},
+        but has to be {{form.get('password')!.errors!.minlength.requiredLength}}</small>
+    </div>
+  </div>
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="form.invalid || submitted">Log in</button>
+  <div class="google-block">
+    <button><img [src]="googleImg" ></button>
+    <h3>Log In with google</h3>
+  </div>
+</form>

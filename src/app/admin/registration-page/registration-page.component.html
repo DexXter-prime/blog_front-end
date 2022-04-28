@@ -1,0 +1,88 @@
+<!-- <form class="card" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div class="form-control" [ngClass]="{invalid: form.get('name')!.touched && form.get('name')!.invalid}">
+    <label for="name">Name: </label>
+    <input type="text" id="name" formControlName="name">
+    <div class="validation" *ngIf="form.get('name')!.touched && form.get('name')!.invalid">
+      <small *ngIf="form.get('name')!.errors!.required">Name has to be filled</small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('email')!.touched && form.get('email')!.invalid}">
+    <label for="email">Email: </label>
+    <input type="email" id="email" formControlName="email">
+    <div class="validation" *ngIf="form.get('email')!.touched && form.get('email')!.invalid">
+      <small *ngIf="form.get('email')!.errors!.required">Email has to be filled</small>
+      <small *ngIf="form.get('email')!.errors!.email">Invalid Email</small>
+      <small *ngIf="form.get('email')!.errors!.existingEmail">Such email already exists</small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{'invalid': form.get('password')!.touched && form.get('password')!.invalid}">
+    <label for="password">Password: </label>
+    <input type="password" id="password" formControlName="password">
+    <div class="validation" *ngIf="form.get('password')!.touched && form.get('password')!.invalid">
+      <small *ngIf="form.get('password')!.errors!.required">Password has to be filled</small>
+      <small *ngIf="form.get('password')!.errors!.minlength">Your passwrods is {{form.get('password')!.errors!.minlength.actualLength}}, but has to be {{form.get('password')!.errors!.minlength.requiredLength}}</small>
+    </div>
+  </div>
+
+  <div class="form-control" [ngClass]="{invalid: form.get('confirmPassword')!.touched && form.get('confirmPassword')!.invalid}">
+    <label for="confirm-password">Confirm password: </label>
+    <input type="password" id="confirm-password" formControlName="confirmPassword">
+    <div class="validation" *ngIf="form.get('confirmPassword')!.touched && form.get('confirmPassword')!.invalid">
+      <small *ngIf="form.get('confirmPassword')!.errors!.required">This field hasn't to be empty</small>
+      <small *ngIf="form.get('confirmPassword')!.errors!.passwordConfirmation">Passwords have to be equal</small>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit" [disabled]="form.invalid || submitted">Submit</button>
+</form> -->
+
+
+
+<form class="form-signin" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div class="form-label-group inputBlock" [ngClass]="{invalid: form.get('name')!.touched && form.get('name')!.invalid}">
+    <label for="inputName">Name</label>
+    <input formControlName="name" type="text" id="inputName" class="form-control" placeholder="Name">
+    <div class="validation" *ngIf="form.get('name')!.touched && form.get('name')!.invalid">
+      <small *ngIf="form.get('name')!.errors!.required">Name has to be filled</small>
+    </div>
+  </div>
+
+  <div class="form-label-group inputBlock" [ngClass]="{invalid: form.get('email')!.touched && form.get('email')!.invalid}">
+    <label for="inputEmail">Email address</label>
+    <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address">
+    <div class="validation" *ngIf="form.get('email')!.touched && form.get('email')!.invalid">
+      <small *ngIf="form.get('email')!.errors!.required">Email has to be filled</small>
+      <small *ngIf="form.get('email')!.errors!.email">Invalid Email</small>
+      <small *ngIf="form.get('email')!.errors!.existingEmail">Such email already exists</small>
+    </div>
+  </div>
+
+  <div class="form-label-group inputBlock" [ngClass]="{'invalid': form.get('password')!.touched && form.get('password')!.invalid}">
+    <label for="inputPassword">Password</label>
+    <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password">
+    <div class="validation" *ngIf="form.get('password')!.touched && form.get('password')!.invalid">
+      <small *ngIf="form.get('password')!.errors!.required">Password has to be filled</small>
+      <small *ngIf="form.get('password')!.errors!.minlength">Your passwrods is {{form.get('password')!.errors!.minlength.actualLength}}, but has to be {{form.get('password')!.errors!.minlength.requiredLength}}</small>
+    </div>
+  </div>
+
+  <div class="form-label-group inputBlock" [ngClass]="{invalid: form.get('confirmPassword')!.touched && form.get('confirmPassword')!.invalid}">
+    <label for="inputConfirmPassword">Confirm Password</label>
+    <input formControlName="confirmPassword" type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm your password">
+    <div class="validation" *ngIf="form.get('confirmPassword')!.touched && form.get('confirmPassword')!.invalid">
+      <small *ngIf="form.get('confirmPassword')!.errors!.required">This field hasn't to be empty</small>
+      <small *ngIf="form.get('confirmPassword')!.errors!.passwordConfirmation">Passwords have to be equal</small>
+    </div>
+  </div>
+
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="form.invalid || submitted">Sign up</button>
+  <div class="google-block">
+    <button><img [src]="googleImg" ></button>
+    <h3>Sign Up with google</h3>
+  </div>
+</form>

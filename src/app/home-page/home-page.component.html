@@ -1,0 +1,72 @@
+
+
+<header>
+  <div class="navbar navbar-dark bg-dark box-shadow">
+    <div class="container d-flex justify-content-between nav">
+
+          <h1><a (click)="onMain($event)">BlogX</a></h1>
+          <ul *ngIf="auth.isAuthenticated; else notAuthBlock">
+            <div>
+              <small>User: <strong>{{auth.currentUser?.name }}</strong></small>
+            </div>
+            <li routerLinkActive="active">
+              <a [routerLink]="['/admin', 'create']">Create</a>
+            </li>
+            <li>
+              <a (click)="logout($event)"><span>Logout</span></a>
+            </li>
+          </ul>
+
+        <ng-template #notAuthBlock>
+        <ul>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/admin', 'create']">Create</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/admin', 'registration']">Registration</a>
+          </li>
+          <li routerLinkActive="active">
+            <a [routerLink]="['/admin', 'login']">Log In</a>
+          </li>
+        </ul>
+        </ng-template>
+    </div>
+  </div>
+</header>
+
+
+
+<main>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <input class="form-control search-input"  type="text" name="search" [(ngModel)]="searchText" placeholder="Search title of post...">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" *ngIf="postsService.posts?.length; else emptyBlock">
+        <app-post class="post" (onTagClick)="changeCurrentPage($event)" *ngFor="let post of postsService.posts | filter: searchText | paginate: {itemsPerPage: 3, currentPage: page}"
+          [title]="post.title"
+          [content]="post.content"
+          [author]="post.author"
+          [date]="post.createdAt"
+          [postId]="post.id"
+          [imageTitle]="post.imageSource"
+          [likeCounter]="post.likeCounter"
+          [tags]="post.tags"
+          ></app-post>
+      </div>
+      <ng-template #emptyBlock>
+        <div class="empty-block">
+          <h1>There is no posts...</h1>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</main>
+
+
+<footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <pagination-controls *ngIf="postsService.posts?.length" (pageChange)="page = $event"></pagination-controls>
+      </div>
+</footer>

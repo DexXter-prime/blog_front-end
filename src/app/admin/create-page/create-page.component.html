@@ -1,0 +1,41 @@
+
+<form class="form-signin" *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div class="form-label-group inputBlock" [ngClass]="{invalid: form?.get('title')!.touched && form?.get('title')!.invalid}">
+    <label for="inputEmail">Title</label>
+    <input formControlName="title" type="text" id="inputTitle" class="form-control" placeholder="Title">
+    <div class="validation" *ngIf="form.get('title')!.touched && form.get('title')!.invalid">
+      <small *ngIf="form.get('title')!.errors!.required">Title has to be filled</small>
+      <small *ngIf="form.get('title')!.errors!.maxlength">Maximum length of title is {{form.get('title')!.errors!.maxlength.requiredLength}} now is {{form.get('title')!.errors!.maxlength.actualLength}}</small>
+    </div>
+  </div>
+
+  <div class="form-label-group inputBlock" [ngClass]="{invalid: form?.get('content')!.touched && form?.get('content')!.invalid}">
+    <label for="inputContent">Content</label>
+    <textarea formControlName="content" type="text" id="inputContent" class="form-control" placeholder="Content"></textarea>
+    <div class="validation" *ngIf="form.get('content')!.touched && form.get('content')!.invalid">
+      <small *ngIf="form.get('content')!.errors!.required">Content has to be fille</small>
+      <small *ngIf="form.get('content')!.errors!.minlength">Minimum amount of letters are {{form.get('content')!.errors!.minlength.requiredLength}} now is {{form.get('content')!.errors!.minlength.actualLength}}</small>
+    </div>
+  </div>
+
+
+  <div class="form-label-group inputBlock" [ngClass]="{invalid: form.get('tags')!.touched && form.get('tags')!.invalid}">
+    <label for="inputTags">Tags <small>seperate with ","</small></label>
+    <input formControlName="tags" type="text" id="inputTags" class="form-control" placeholder="Tags">
+    <div class="validation" *ngIf="form.get('tags')!.touched && form.get('tags')!.invalid">
+      <small *ngIf="form.get('tags')!.errors!.limitOftags">Limit of tags are 5. Now is {{form.get('tags')?.errors?.limitOftags}}</small>
+    </div>
+  </div>
+
+
+  <div class="form-label-group inputBlock" [ngClass]="{invalid: form?.get('file')!.touched && form?.get('file')!.invalid}">
+    <label for="inputFile">Upload image</label>
+    <input (change)="uploadFile($event)" type="file" id="inputFile" class="form-control" placeholder="Your image">
+    <div class="img-wrapper" *ngIf="imagePath">
+      <img [src]="imagePath">
+    </div>
+  </div>
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="form.invalid || submitted">Submit</button>
+</form>

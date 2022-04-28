@@ -1,0 +1,60 @@
+
+<!-- <div class="card">
+  <div class="img-block">
+    <div *ngIf="imageTitle; else placeholderBlock">
+      <img [src]="staticPath + imageTitle" >
+    </div>
+    <ng-template #placeholderBlock>
+      <div>
+        <img [src]="placeholderPath">
+      </div>
+    </ng-template>
+  </div>
+  <div class="info-block">
+    <div class="card-header">
+      <h3>{{title}}</h3>
+      <small>{{date | date}}</small>
+    </div>
+    <div class="card-content">
+      <p>{{content | shortContent: endContentIndex}}</p>
+      <div class="author">
+       <small>Author: <strong>{{author}}</strong></small>
+      </div>
+      <div class="tags">
+        <span (click)="onTagName(tag)" *ngFor="let tag of tags">#{{tag | shortContent: endTagIndex}}</span>
+      </div>
+      <button class="btn btn-primary" [routerLink]="['/post', postId]">See more</button>
+      <button *ngIf="author === auth.currentUser?.name && auth.isAuthenticated " class="btn btn-dark" (click)="onDelete(postId)">Delete</button>
+      <button *ngIf="author === auth.currentUser?.name && auth.isAuthenticated " class="btn btn-success" (click)="onEdit(postId)">Edit</button>
+    </div>
+  </div>
+</div> -->
+
+
+  <div class="col" >
+    <div class="card shadow-sm">
+        <img *ngIf="imageTitle; else placeholderBlock" class="card-img-top" width="100%" height="250" [src]="staticPath + imageTitle" >
+      <ng-template  #placeholderBlock>
+          <img class="card-img-top" [src]="placeholderPath">
+      </ng-template>
+
+      <div class="card-body">
+        <h3><strong>{{title}}</strong></h3>
+        <p class="card-text">{{content | shortContent: endContentIndex}}</p>
+        <div class="author">
+          <small>Author: <strong>{{author}}</strong></small>
+         </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <button [routerLink]="['/post', postId]" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+            <button *ngIf="author === auth.currentUser?.name && auth.isAuthenticated" (click)="onEdit(postId)" type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            <button *ngIf="author === auth.currentUser?.name && auth.isAuthenticated" (click)="onDelete(postId)" type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+          </div>
+          <small class="text-muted">{{date | date}}</small>
+        </div>
+        <div class="tags">
+          <span class="tag" (click)="onTagName(tag)" *ngFor="let tag of tags">#{{tag | shortContent: endTagIndex}}</span>
+        </div>
+      </div>
+    </div>
+  </div>

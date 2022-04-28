@@ -1,0 +1,34 @@
+form {
+  max-width: 600px;
+  margin: 20px auto;
+
+  .google-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+   button {
+     border: none;
+     background: none;
+   }
+
+  }
+}
+
+.inputBlock {
+  margin: 10px 0;
+
+  label {
+    margin: 10px 0;
+  }
+
+  .validation {
+    color: red;
+    margin: 5px 0;
+  }
+  .error-msg {
+    margin-top: 10px;
+  }
+}
+

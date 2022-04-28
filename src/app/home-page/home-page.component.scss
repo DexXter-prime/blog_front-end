@@ -1,0 +1,48 @@
+
+a, h1 {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+small, span {
+  color:white
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  li {
+    text-decoration: none;
+    margin-left: 10px;
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.posts {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+
+.nav {
+  margin-top: 10px;
+}
+
+.search-input {
+  margin-bottom: 20px;
+}
+
+.empty-block {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: black;
+  }
+}
