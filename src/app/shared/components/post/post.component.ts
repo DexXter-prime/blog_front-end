@@ -56,7 +56,7 @@ export class PostComponent implements OnInit {
   onTagName(tagName: string): void {
     this.router.navigate(['/posts'], {
       queryParams: {
-        tagName
+        tagName,
       }
     })
 
